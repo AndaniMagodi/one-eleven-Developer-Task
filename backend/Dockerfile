@@ -1,10 +1,11 @@
 FROM python:3.12-slim
 
 WORKDIR /app
-COPY backend/requirements.txt /app/requirements.txt
+
+COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY backend/app /app/app
+COPY app /app/app
 
-EXPOSE 8080
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
+# Render sets a PORT env var. Default to 8080 if not set.
+CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT:-8080}"]
