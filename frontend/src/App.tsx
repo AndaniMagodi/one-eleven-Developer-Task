@@ -79,7 +79,6 @@ export default function App() {
     <div style={{ maxWidth: 760, margin: "40px auto", padding: 16 }}>
       <h1 style={{ marginBottom: 6 }}>One Eleven – API Validation Tester</h1>
       <p style={{ marginTop: 0, opacity: 0.8 }}>
-        Enter your email and your deployed API endpoint URL (e.g. https://your-service/webhook).
       </p>
 
       <form onSubmit={onSubmit} style={{ display: "grid", gap: 12 }}>
